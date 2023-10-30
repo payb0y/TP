@@ -2,6 +2,7 @@ from agent import Agent
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import random
+import time
 
 class AgentAspirateur(Agent):
     def __init__(self, environnement):
@@ -25,7 +26,7 @@ class AgentAspirateur(Agent):
         elif action == "droite" and self.position[1] < self.environnement.largeur - 1:
             self.position = (self.position[0], self.position[1] + 1)
         elif action == "auto_pilot":
-            #keep looping until the agent has finished
+            start_time = time.time()
             while not self.agir("verifier"):
                 def get_choice():
                     choice = random.choice(["gauche", "droite", "bas", "haut"])
@@ -48,15 +49,13 @@ class AgentAspirateur(Agent):
                     self.agir("aspirer")
                 self.apprendre()
                 plt.pause(0.1)
+            end_time = time.time()
+            print(f"Temps d'exécution: {(end_time - start_time):.2f} secondes")
+            print("L'agent a fini de nettoyer la grille")
 
         elif action == "verifier":
-            #if all cells has been visited, the agent has finished
-            if len(self.historique) == self.environnement.largeur * self.environnement.hauteur:
-                print("fini")
-                return True
-            else:
-                print("pas fini")
-                return False
+            return len(self.historique) == self.environnement.largeur * self.environnement.hauteur
+        
         self.environnement.afficher_agent(self.position)
     
     def apprendre(self):

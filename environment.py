@@ -28,19 +28,19 @@ class Grille:
     
 
     def afficher(self):
-        # Clear the previous plot
+        # Clear the previous grid
         self.ax.clear()
         
-        # Plot the grid
+        # init the grid
         self.ax.imshow(self.grid, cmap='gray')
 
-        # Plot the grid borders in white
+        # borders in white
         for i in range(self.hauteur + 1):
             self.ax.axhline(i, color='white')
         for j in range(self.largeur + 1):
             self.ax.axvline(j, color='white')
 
-        # add grey patches for dirty cells
+        # dirty cells
         for i in range(self.hauteur):
             for j in range(self.largeur):
                 if random.randint(0, 1) == 1:
