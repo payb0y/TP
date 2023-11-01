@@ -9,9 +9,10 @@ class AgentAspirateur(Agent):
         super().__init__(environnement)
         self.position = (0, 0)
         self.historique = []
-
+        self.start_position = self.position
     def percevoir(self):
         return self.environnement.grid[self.position[0]][self.position[1]] == 1
+
 
     def agir(self, action):
         if action == "aspirer":
@@ -25,6 +26,19 @@ class AgentAspirateur(Agent):
             self.position = (self.position[0], self.position[1] - 1)
         elif action == "droite" and self.position[1] < self.environnement.largeur - 1:
             self.position = (self.position[0], self.position[1] + 1)
+        elif action == "retourner_start":
+            # This action will move the agent towards the start position
+            while self.position != self.start_position:
+                if self.position[0] < self.start_position[0]:
+                    self.position = (self.position[0] + 1, self.position[1])
+                elif self.position[0] > self.start_position[0]:
+                    self.position = (self.position[0] - 1, self.position[1])
+                elif self.position[1] < self.start_position[1]:
+                    self.position = (self.position[0], self.position[1] + 1)
+                elif self.position[1] > self.start_position[1]:
+                    self.position = (self.position[0], self.position[1] - 1)
+                self.environnement.afficher_agent(self.position)
+                plt.pause(0.1)
         elif action == "auto_pilot":
             start_time = time.time()
             while not self.agir("verifier"):
@@ -49,7 +63,9 @@ class AgentAspirateur(Agent):
                     self.agir("aspirer")
                 self.apprendre()
                 plt.pause(0.1)
+            self.agir("retourner_start")
             end_time = time.time()
+
             print(f"Temps d'exécution: {(end_time - start_time):.2f} secondes")
             print("L'agent a fini de nettoyer la grille")
 

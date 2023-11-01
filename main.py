@@ -10,7 +10,6 @@ def main():
 
     agent_aspirateur.agir("auto_pilot")
 
-    plt.show()  # Keep the final grid on screen
-
+    plt.show() 
 if __name__ == "__main__":
     main()

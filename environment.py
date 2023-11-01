@@ -56,4 +56,4 @@ class Grille:
         self.ax.set_xlim(0, self.largeur)
         self.ax.set_ylim(0, self.hauteur)
         self.ax.set_aspect('equal')
-        plt.axis('off')  # Ensure the axis remains off after redrawing
+        plt.axis('off') 
