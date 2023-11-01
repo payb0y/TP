@@ -13,7 +13,5 @@ Le code principal se trouve dans le fichier "main.py":
 Ce code est une simulation simple d'un aspirateur robotique qui nettoie une grille en se déplaçant de manière aléatoire. Il est destiné à des fins éducatives et peut être étendu pour des fonctionnalités plus avancées.
 
 
-![image](https://github.com/payb0y/TP/assets/99542808/5604a5dd-c5e6-4093-afed-359ee69d72df)
+https://github.com/payb0y/TP/assets/99542808/3fec620d-c616-440e-874e-e88982c8b53e
 
-
-![Untitled video - Made with Clipchamp](https://github.com/payb0y/TP/assets/99542808/755d37d2-02ce-462d-ba58-deb007a491c1)
