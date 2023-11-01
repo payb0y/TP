@@ -27,7 +27,6 @@ class AgentAspirateur(Agent):
         elif action == "droite" and self.position[1] < self.environnement.largeur - 1:
             self.position = (self.position[0], self.position[1] + 1)
         elif action == "retourner_start":
-            # This action will move the agent towards the start position
             while self.position != self.start_position:
                 if self.position[0] < self.start_position[0]:
                     self.position = (self.position[0] + 1, self.position[1])
@@ -75,6 +74,5 @@ class AgentAspirateur(Agent):
         self.environnement.afficher_agent(self.position)
     
     def apprendre(self):
-        #if the cell isn't in the history, add it
         if self.position not in self.historique: 
             self.historique.append(self.position)

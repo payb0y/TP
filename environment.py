@@ -8,10 +8,9 @@ class Grille:
     def __init__(self, largeur, hauteur):
         self.largeur = largeur
         self.hauteur = hauteur
-        self.grid = [[0] * largeur for _ in range(hauteur)]  # No need to add 1
+        self.grid = [[0] * largeur for _ in range(hauteur)] 
         self.fig, self.ax = plt.subplots()
 
-        # Set the aspect of the plot to be equal, so each cell will be square-shaped.
         self.ax.set_aspect('equal')
 
         self.agent_marker = None 
@@ -20,20 +19,18 @@ class Grille:
         # Set axes limits
         self.ax.set_xlim(0, self.largeur)
         self.ax.set_ylim(0, self.hauteur)
+
         plt.axis('off')  # Turn off the axis
 
     def afficher_agent(self, position):
         if self.agent_marker:
             self.agent_marker.remove()
-
-        # Plot the agent image at the center
         ab = AnnotationBbox(OffsetImage(self.vacuum_image, zoom=0.03), (position[1] + 0.5, position[0] + 0.5), frameon=False)
         self.ax.add_artist(ab)
         self.agent_marker = ab
         self.fig.canvas.draw()
 
     def afficher(self):
-        # Clear the previous grid
         self.ax.clear()
 
         # init the grid
