@@ -1,10 +1,10 @@
-from environment import Grille
 from agentVacuum import AgentAspirateur
+from environmentVacuum import EnvironmentVacuum
 import matplotlib.pyplot as plt
 
 
 def main():
-    environnement = Grille(5, 5)
+    environnement = EnvironmentVacuum(5, 5)
     agent_aspirateur = AgentAspirateur(environnement)
     environnement.afficher() 
 
