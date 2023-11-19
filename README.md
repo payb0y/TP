@@ -8,10 +8,10 @@ Le code principal se trouve dans le fichier "main.py":
 4. L'aspirateur est ensuite mis en mode "auto-pilot" pour nettoyer la grille.
 5. Le résultat final est affiché à l'aide de Matplotlib.
 
+run : pip install -r requirements.txt
 ## Note
 
 Ce code est une simulation simple d'un aspirateur robotique qui nettoie une grille en se déplaçant de manière aléatoire. Il est destiné à des fins éducatives et peut être étendu pour des fonctionnalités plus avancées.
-
 
 
 ![DEMO](https://github.com/payb0y/TP/assets/99542808/f263927e-4077-4827-aa06-a49c7316323b)
