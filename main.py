@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    environnement = Grille(5, 5)
+    environnement = Grille(3, 3)
     agent_aspirateur = AgentAspirateur(environnement)
     environnement.afficher() 
-
+    
     agent_aspirateur.agir("auto_pilot")
 
     plt.show() 

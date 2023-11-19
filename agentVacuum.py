@@ -4,12 +4,15 @@ import matplotlib.patches as patches
 import random
 import time
 
+#dictionary with current position and state
+
 class AgentAspirateur(Agent):
     def __init__(self, environnement):
         super().__init__(environnement)
         self.position = (0, 0)
         self.historique = []
         self.start_position = self.position
+
     def percevoir(self):
         return self.environnement.grid[self.position[0]][self.position[1]] == 1
 
@@ -39,6 +42,7 @@ class AgentAspirateur(Agent):
                 self.environnement.afficher_agent(self.position)
                 plt.pause(0.1)
         elif action == "auto_pilot":
+            plt.pause(10)
             start_time = time.time()
             while not self.agir("verifier"):
                 def get_choice():
