@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 
 
 def main():
+    environnement = EnvironmentVacuum(5, 5)
     agent_aspirateur = AgentAspirateur(environnement)
     environnement.afficher() 
-    
     agent_aspirateur.agir("auto_pilot")
 
     plt.show() 

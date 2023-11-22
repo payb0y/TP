@@ -16,7 +16,7 @@ class EnvironmentVacuum(Environment):
         self.vacuum_image = Image.open('./assets/vacuum.png')
         self.ax.set_xlim(0, self.largeur)
         self.ax.set_ylim(0, self.hauteur)
-        plt.axis('off')
+        #plt.axis('off')
 
     def afficher_agent(self, position):
         if self.agent_marker:
@@ -41,4 +41,4 @@ class EnvironmentVacuum(Environment):
         self.ax.set_xlim(0, self.largeur)
         self.ax.set_ylim(0, self.hauteur)
         self.ax.set_aspect('equal')
-        plt.axis('off')
+        #plt.axis('off')
